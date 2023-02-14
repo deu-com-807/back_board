@@ -1,15 +1,19 @@
 package lab.back_board.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 @Table(name = "user_info")
 public class User {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     @Column(name = "user_name")
     private String userName;
@@ -25,18 +29,18 @@ public class User {
         super();
     }
 
-    public User(String userId, String userName, String userEmail, String userPassword) {
+    public User(Long userId, String userName, String userEmail, String userPassword) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
